@@ -1,101 +1,164 @@
-import Image from "next/image";
+'use client'
 
-export default function Home() {
+import { useState } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { Michroma, Chakra_Petch } from 'next/font/google'
+import { Github, Linkedin, Mail, Instagram } from 'lucide-react'
+
+import ProjectCard from '@/components/ui/projectcard'
+
+const michroma = Michroma({
+  weight: ['400'],
+  subsets: ['latin'],
+  display: 'swap', // Improve font loading performance
+})
+
+const chakra = Chakra_Petch({
+  weight: ['400'],
+  subsets: ['latin'],
+  display: 'swap', // Improve font loading performance
+})
+
+
+const projects = [
+  {
+    id: 1,
+    title: "Machine Learning Barbell Exercise Tracker",
+    subtitle: "Python • Pandas • Conda • Matplotlib",
+    description: "A barbell exercise classification model using data from a wrist sensor.",
+    link: "https://github.com/Khaedra/Fitness-Tracker-ML",
+    size: "medium", // Controls card size
+    image: "barbell",
+    row: "large",
+  },
+  {
+    id: 2,
+    title: "Wellspring (NW HackCamp 2024)",
+    subtitle: "React • News API • TailwindCSS • NextJS • Figma",
+    description: "Real-time weather forecasting application with location detection.",
+    link: "https://github.com/RuhaniMittal29/WellSpring",
+    size: "medium",
+    image: "wellspring",
+    award: true,
+  },
+  {
+    id: 3,
+    title: "Task Manager",
+    subtitle: "Vue.js • Firebase • Vuex",
+    description: "Collaborative task management tool with real-time updates.",
+    link: "https://project3.com",
+    size: "medium",
+  },
+  {
+    id: 4,
+    title: "Portfolio Website",
+    subtitle: "Next.js • TailwindCSS • Framer Motion",
+    description: "Personal portfolio featuring animated transitions and responsive design.",
+    link: "https://project4.com",
+    size: "small",
+  }
+];
+
+export default function Component() {
+  const [activeSection, setActiveSection] = useState('home')
+
+  const navItems = [
+    { name: 'contact', href: '#contact' },
+    { name: 'projects', href: '#projects' },
+    { name: 'resume', href: '#resume' },
+    { name: 'hobbies', href: '#hobbies' },
+  ]
+
+  const socialLinks = [
+    { href: "https://github.com/Khaedra", icon: Github, hoverColor: 'hover:text-blue-400' },
+    { href: "https://www.linkedin.com/in/geoff-jiang/", icon: Linkedin, hoverColor: 'hover:text-purple-500' },
+    { href: "mailto:your.email@example.com", icon: Mail, hoverColor: 'hover:text-pink-900' },
+    { href: "https://www.instagram.com/your-instagram", icon: Instagram, hoverColor: 'hover:text-blue-900' },
+  ]
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="relative min-h-screen overflow-hidden bg-[#001219] flex flex-col">
+      {/* Geometric Shapes */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -left-[100px] -top-[400px] h-[800px] w-96 rotate-45 transform bg-gradient-to-br from-[#620057] from-20% to-[#021B56]" />
+        <div className="absolute left-[70px] top-[120px] h-[220px] w-8 rotate-45 transform bg-gradient-to-tl from-[#042D85] to-[#41228F] opacity-50" />
+        <div className="absolute left-[300px] -top-[50px] h-[280px] w-8 rotate-45 transform bg-[#042D85] opacity-45" />
+        <div className="absolute -right-40 -top-44 h-[400px] w-[600px] -rotate-45 transform bg-gradient-to-br from-[#620057] via-[#330D57] to-[#021B56] opacity-50" />
+        <div className="absolute top-44 -right-40 h-[500px] w-96 rotate-45 transform bg-gradient-to-br from-[#620057] via-[#330D57] to-[#021B56] opacity-50" />
+        
+       
+        
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className="absolute -bottom-52 -right-40 h-[500px] w-96 rotate-45 transform bg-gradient-to-br from-[#620057] via-[#330D57] to-[#021B56] opacity-50" />
+        <div className="absolute -bottom-20 -right-40 h-[500px] w-96 rotate-45 transform bg-gradient-to-br from-[#620057] via-[#330D57] to-[#021B56] opacity-50" />
+      </div>
+
+      {/* Navigation */}
+      <nav className="relative z-10">
+        <div className="mx-auto max-w-6xl px-4 py-8">
+          <ul className="flex justify-end space-x-12 text-lg tracking-widest">
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <Link
+                  href={item.href}
+                  className={`transition-colors hover:text-blue-400 ${activeSection === item.name ? 'text-blue-400' : 'text-blue-500'
+                    }`}
+                  onClick={() => setActiveSection(item.name)}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
+      </nav>
+
+      {/* Main Content */}
+      <main className="relative z-10 mx-auto max-w-6xl px-4 pt-32 mt-10 ">
+        <h1 className={`${michroma.className} text-center text-8xl font-bold text-white tracking-wider`}>
+          GEOFF
+          <div className='border-y-2 relative w-full h-10 bg-transparent text-white text-base mt-8 mb-5 whitespace-nowrap overflow-hidden py-1'>
+            <p className='animate-scrolling-text text-lg inline-flex mx-1'>
+              / SECOND YEAR COMPUTER SCIENCE STUDENT / ASPIRING SOFTWARE DEVELOPER / UI/UX ENTHUSIAST / FULLSTACK CAPABILITIES
+            </p>
+            <p className='animate-scrolling-text text-lg inline-flex'>
+              / SECOND YEAR COMPUTER SCIENCE STUDENT / ASPIRING SOFTWARE DEVELOPER / UI/UX ENTHUSIAST / FULLSTACK CAPABILITIES
+            </p>
+          </div>
+          <span className='tracking-widest'>JIANG</span>
+        </h1>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      {/* Social Links */}
+      <div className=' relative w-auto h-20 flex space-x-10 z-10 mt-[10%] mb-9 justify-center '>
+        {socialLinks.map((link, index) => (
+          <a key={index} href={link.href} target='_blank' rel="noopener noreferrer" className={`text-white ${link.hoverColor} hover:scale-110 duration-200`}>
+            <link.icon size={40} />
+          </a>
+        ))}
+      </div>
+
+      {/* Projects */}
+      <div className='absolute h-[10%] w-[45%] rotate-[35deg] mt-[900px] -ml-52 bg-gradient-to-tl from-[#620057] via-[#330D57] to-[#021B56] opacity-50'></div>
+      <div className='absolute h-[5%] w-[25%] rotate-[35deg] mt-[1100px] -ml-52 bg-gradient-to-tl from-[#620057] via-[#330D57] to-[#021B56] opacity-50'></div>
+      <h1 id="projects" className={`${michroma.className} text-white text-4xl mt-56 mb-10 mx-10 z-10`}>Projects</h1>
+      
+
+      <div className= {`${chakra.className} relative grid grid-cols-2 auto-rows-fr gap-9 w-[80%] h-full p-10 mx-auto mb-24 justify-center align-middle`}>
+        <ProjectCard project={projects[0]} />
+        <ProjectCard project={projects[1]} />
+        <ProjectCard project={projects[2]} />
+        <ProjectCard project={projects[3]} />
+        <ProjectCard project={projects[3]} />
+        
+      </div>
+
+    
+          <h1 className={`text-center text-4xl text-white mt-28 ${michroma.className}`}>About Me</h1>
+      
+      <div className='min-h-screen w-full'>hello</div>
+
     </div>
-  );
+  )
 }
