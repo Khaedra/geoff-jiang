@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Michroma, Chakra_Petch } from 'next/font/google'
 import { Github, Linkedin, Mail, Instagram } from 'lucide-react'
 
@@ -86,9 +85,9 @@ export default function Component() {
         <div className="absolute left-[300px] -top-[50px] h-[280px] w-8 rotate-45 transform bg-[#042D85] opacity-45" />
         <div className="absolute -right-40 -top-44 h-[400px] w-[600px] -rotate-45 transform bg-gradient-to-br from-[#620057] via-[#330D57] to-[#021B56] opacity-50" />
         <div className="absolute top-44 -right-40 h-[500px] w-96 rotate-45 transform bg-gradient-to-br from-[#620057] via-[#330D57] to-[#021B56] opacity-50" />
-        
-       
-        
+
+
+
 
         <div className="absolute -bottom-52 -right-40 h-[500px] w-96 rotate-45 transform bg-gradient-to-br from-[#620057] via-[#330D57] to-[#021B56] opacity-50" />
         <div className="absolute -bottom-20 -right-40 h-[500px] w-96 rotate-45 transform bg-gradient-to-br from-[#620057] via-[#330D57] to-[#021B56] opacity-50" />
@@ -143,20 +142,20 @@ export default function Component() {
       <div className='absolute h-[10%] w-[45%] rotate-[35deg] mt-[900px] -ml-52 bg-gradient-to-tl from-[#620057] via-[#330D57] to-[#021B56] opacity-50'></div>
       <div className='absolute h-[5%] w-[25%] rotate-[35deg] mt-[1100px] -ml-52 bg-gradient-to-tl from-[#620057] via-[#330D57] to-[#021B56] opacity-50'></div>
       <h1 id="projects" className={`${michroma.className} text-white text-4xl mt-56 mb-10 mx-10 z-10`}>Projects</h1>
-      
 
-      <div className= {`${chakra.className} relative grid grid-cols-2 auto-rows-fr gap-9 w-[80%] h-full p-10 mx-auto mb-24 justify-center align-middle`}>
+
+      <div className={`${chakra.className} relative grid grid-cols-2 auto-rows-fr gap-9 w-[80%] h-full p-10 mx-auto mb-24 justify-center align-middle`}>
         <ProjectCard project={projects[0]} />
         <ProjectCard project={projects[1]} />
         <ProjectCard project={projects[2]} />
         <ProjectCard project={projects[3]} />
         <ProjectCard project={projects[3]} />
-        
+
       </div>
 
-    
-          <h1 className={`text-center text-4xl text-white mt-28 ${michroma.className}`}>About Me</h1>
-      
+
+      <h1 className={`text-center text-4xl text-white mt-28 ${michroma.className}`}>About Me</h1>
+
       <div className='min-h-screen w-full'>hello</div>
 
     </div>
