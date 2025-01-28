@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
+
 import { motion } from "framer-motion";
 import { Chakra_Petch } from 'next/font/google';
 const chakra = Chakra_Petch({
@@ -129,7 +129,7 @@ const About = () => {
             >
                 <h2 className={`${chakra.className} text-2xl font-bold mb-4 text-white tracking-widest`}>About Me</h2>
                 <p className={`${chakra.className} text-white tracking-wide`}>
-                    Hi! My name is Geoff Jiang, I'm currently a second year computer science student studying @ UBC. Why Computer Science you ask? I don't know. I have a strong interest in fullstack and web dev, but also dabble in fields such as game design and cybersecurity. I have a solid foundation in Java, Python, and C, with my arsenal expanding into JavaScript, C++, HTML/CSS and many more to come. If you have any questions or just want to chat, feel free to reach out via Instagram. 
+                    Hi! My name is Geoff Jiang, I`m currently a second year computer science student studying @ UBC. Why Computer Science you ask? I don`t know. I have a strong interest in fullstack and web dev, but also dabble in fields such as game design and cybersecurity. I have a solid foundation in Java, Python, and C, with my arsenal expanding into JavaScript, C++, HTML/CSS and many more to come. If you have any questions or just want to chat, feel free to reach out via Instagram. 
                     
                 </p>
             </motion.div>

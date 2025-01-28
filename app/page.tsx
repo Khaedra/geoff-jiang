@@ -7,7 +7,6 @@ import { Github, Linkedin, Mail, Instagram } from 'lucide-react'
 
 import ProjectCard from '@/components/ui/projectcard'
 import About from '@/components/ui/about'
-import Contact from '@/components/ui/contact'
 
 const michroma = Michroma({
   weight: ['400'],
@@ -34,8 +33,8 @@ const projects = [
     The dataset comprised <b>70,000 observations</b> from five participants performing five different exercises: 
     bench press, squat, row, deadlift, and overhead press, collected via a metaMotion wrist sensor. <br/><br/>
     
-    Data preprocessing included multiple outlier detection methods (<b>IQR, Chauvenet's criterion, and Local Outlier Factor</b>) 
-    and feature engineering techniques such as <b>Butterworth's Low Pass Filter, Principal Component Analysis</b>, 
+    Data preprocessing included multiple outlier detection methods (<b>IQR, Chauvenet`s criterion, and Local Outlier Factor</b>) 
+    and feature engineering techniques such as <b>Butterworth`s Low Pass Filter, Principal Component Analysis</b>, 
     and various temporal and frequency abstractions. <br/><br/>
     
     Model selection involved forward feature selection with decision trees and Grid Search optimization across 
