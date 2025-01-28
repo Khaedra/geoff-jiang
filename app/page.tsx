@@ -6,6 +6,8 @@ import { Michroma, Chakra_Petch } from 'next/font/google'
 import { Github, Linkedin, Mail, Instagram } from 'lucide-react'
 
 import ProjectCard from '@/components/ui/projectcard'
+import About from '@/components/ui/about'
+import Contact from '@/components/ui/contact'
 
 const michroma = Michroma({
   weight: ['400'],
@@ -25,7 +27,21 @@ const projects = [
     id: 1,
     title: "Machine Learning Barbell Exercise Tracker",
     subtitle: "Python • Pandas • Conda • Matplotlib",
-    description: "A barbell exercise classification model using data from a wrist sensor.",
+    description: <>
+    A <b>machine learning model</b> for barbell exercise classification and repetition counting using 
+    <b> accelerometer and gyroscope data</b>. <br/><br/>
+    
+    The dataset comprised <b>70,000 observations</b> from five participants performing five different exercises: 
+    bench press, squat, row, deadlift, and overhead press, collected via a metaMotion wrist sensor. <br/><br/>
+    
+    Data preprocessing included multiple outlier detection methods (<b>IQR, Chauvenet's criterion, and Local Outlier Factor</b>) 
+    and feature engineering techniques such as <b>Butterworth's Low Pass Filter, Principal Component Analysis</b>, 
+    and various temporal and frequency abstractions. <br/><br/>
+    
+    Model selection involved forward feature selection with decision trees and Grid Search optimization across 
+    multiple algorithms including <b>Neural Networks, Random Forest, Naive Bayes, and Decision Trees</b>. 
+    The final model achieved over <b>99% accuracy and precision</b>.
+  </>,
     link: "https://github.com/Khaedra/Fitness-Tracker-ML",
     size: "medium", // Controls card size
     image: "barbell",
@@ -35,7 +51,7 @@ const projects = [
     id: 2,
     title: "Wellspring (NW HackCamp 2024)",
     subtitle: "React • News API • TailwindCSS • NextJS • Figma",
-    description: "Real-time weather forecasting application with location detection.",
+    description: <>Awarded <b>Finalist + Most Accessible Design</b> at NW HackCamp 2024. <br></br><br></br>A health and wellness app built for students to track meals, water, sleep, exercise, and goals. Implemented with the <b>newsAPI</b> to retrieve up to date articles through search.</>,
     link: "https://github.com/RuhaniMittal29/WellSpring",
     size: "medium",
     image: "wellspring",
@@ -43,20 +59,31 @@ const projects = [
   },
   {
     id: 3,
-    title: "Task Manager",
-    subtitle: "Vue.js • Firebase • Vuex",
-    description: "Collaborative task management tool with real-time updates.",
-    link: "https://project3.com",
+    title: "Nutrition Log",
+    subtitle: "Java • Java Swing • JComponents",
+    description: <>Course Project for CPSC 210.<br></br><br></br> A nutrition log application to track macros and goals across days, targeting gourmands, epicures, and Computer Science Students. Used JUnit for extensive test coverage, fulfilled key user stories, and implemented save functionality via parsing and writing to JSON files. </>,
+    link: "https://github.com/Khaedra/Nutrition-Log-App",
     size: "medium",
+    image: "nutrition",
   },
   {
     id: 4,
     title: "Portfolio Website",
     subtitle: "Next.js • TailwindCSS • Framer Motion",
-    description: "Personal portfolio featuring animated transitions and responsive design.",
-    link: "https://project4.com",
+    description: "Personal portfolio featuring animated transitions and responsive design. Just what do you think this is?",
+    image: "website",
     size: "small",
-  }
+  },
+  {
+    id: 5,
+    title: "Croak Quest (NW Hacks 2025)",
+    subtitle: "C# • Unity • LeapMotion",
+    description: <>Awarded <b>Best Beginner Project</b> at NWHacks 2025. <br></br><br></br> An educative 2D platformer on Unity powered by LeapMotion hand tracking technology. <b>Learn ASL</b> while improving hand-eye coordination and fine motor skills. An innovative take on player control in video games and education. </>,
+    link: "https://devpost.com/software/croak-quest",
+    size: "medium",
+    image: "frog",
+    award: true, 
+  },
 ];
 
 export default function Component() {
@@ -65,15 +92,14 @@ export default function Component() {
   const navItems = [
     { name: 'contact', href: '#contact' },
     { name: 'projects', href: '#projects' },
-    { name: 'resume', href: '#resume' },
-    { name: 'hobbies', href: '#hobbies' },
+    { name: 'about', href: '#about' },
   ]
 
   const socialLinks = [
     { href: "https://github.com/Khaedra", icon: Github, hoverColor: 'hover:text-blue-400' },
     { href: "https://www.linkedin.com/in/geoff-jiang/", icon: Linkedin, hoverColor: 'hover:text-purple-500' },
-    { href: "mailto:your.email@example.com", icon: Mail, hoverColor: 'hover:text-pink-900' },
-    { href: "https://www.instagram.com/your-instagram", icon: Instagram, hoverColor: 'hover:text-blue-900' },
+    { href: "mailto:g.jiang06@gmail.com", icon: Mail, hoverColor: 'hover:text-pink-900' },
+    { href: "https://www.instagram.com/geoff_j12/", icon: Instagram, hoverColor: 'hover:text-blue-900' },
   ]
 
   return (
@@ -108,7 +134,11 @@ export default function Component() {
                   {item.name}
                 </Link>
               </li>
+
             ))}
+            <li>
+              <Link href="/documents/TechResume2.pdf" download target="_blank" className='transition-colors text-blue-500 hover:text-blue-400'>resume</Link>
+            </li>
           </ul>
         </div>
       </nav>
@@ -136,6 +166,7 @@ export default function Component() {
             <link.icon size={40} />
           </a>
         ))}
+
       </div>
 
       {/* Projects */}
@@ -148,15 +179,25 @@ export default function Component() {
         <ProjectCard project={projects[0]} />
         <ProjectCard project={projects[1]} />
         <ProjectCard project={projects[2]} />
-        <ProjectCard project={projects[3]} />
+        <ProjectCard project={projects[4]} />
         <ProjectCard project={projects[3]} />
 
       </div>
 
 
-      <h1 className={`text-center text-4xl text-white mt-28 ${michroma.className}`}>About Me</h1>
+      <h1 id="about" className={`text-center text-4xl text-white mt-28 ${michroma.className}`}>About Me</h1>
 
-      <div className='min-h-screen w-full'>hello</div>
+      <div className='w-full flex justify-center align-middle'>
+        <About />
+      </div>
+
+      <div className=' relative w-auto h-20 flex space-x-10 z-10 mt-[10%] mb-9 justify-center '>
+        {socialLinks.map((link, index) => (
+          <a key={index} href={link.href} target='_blank' rel="noopener noreferrer" className={`text-white ${link.hoverColor} hover:scale-110 duration-200`}>
+            <link.icon size={40} />
+          </a>
+        ))}
+      </div>
 
     </div>
   )

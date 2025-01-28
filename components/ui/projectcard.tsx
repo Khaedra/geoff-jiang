@@ -5,6 +5,9 @@ const ProjectCard = ({ project }) => {
   const imageLinks = {
     barbell: '/images/barbell.jpg',
     wellspring: `/images/wellspring.png`,
+    nutrition: `/images/nutrition.webp`,
+    website: `/images/website.png`,
+    frog: `/images/frog.png`,
   };
 
   const row = {
