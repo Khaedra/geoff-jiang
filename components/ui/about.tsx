@@ -32,20 +32,25 @@ const About = () => {
         }
     };
 
-    const imageVariants = {
+    const mobilecontainerVariants = {
         initial: {
-            x: -2,
+            width: '24rem', // w-72
+            background: "linear-gradient(to right, #620057,  #021B56)",
+            border: "2px solid #34eb71",
+            
             transition: {
-                duration: 0.8,
-                ease: "easeInOut"
-            }
+                duration: 0.2,
+            },
+          
         },
         expanded: {
-            x: '40rem',
+            width: '24rem', // Expanded width
+            border: "2px solid red",
             transition: {
                 duration: 0.8,
                 ease: "easeInOut"
-            }
+            },
+           
         }
     };
 
@@ -75,7 +80,7 @@ const About = () => {
             opacity: 0,
             transition: {
                 
-                duration: 0.8,
+                duration: 0.5,
                 ease: "easeIn",
             }
            
@@ -91,6 +96,9 @@ const About = () => {
         }
     };
     return (
+        <div>
+
+        <div className='hidden md:block'>
         <motion.div
             className="relative h-96 rounded-full mt-24 mb-10 flex items-center cursor-pointer"
             variants={containerVariants}
@@ -111,17 +119,44 @@ const About = () => {
             </motion.div>
             
             <motion.div 
-                className="w-96 h-96 rounded-full flex-shrink-0 transform hover:scale-110 hover:shadow-2xl"
-                variants={imageVariants}
-                
-                style={{
-                    backgroundImage: `url('/images/barbell.jpg')`,
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover'
-                }}
-                whileHover={{ scale: 1.02 }}
-                
-            />
+            className="w-96 h-96 rounded-full flex-shrink-0 transform hover:scale-110 hover:shadow-2xl"
+            initial={{ opacity: 1 }}
+            animate={{ opacity: isExpanded ? 0 : 1,
+                   x: isExpanded ? '40rem' : -2
+             }}
+            transition={{ duration: 0.8,
+                ease: "easeInOut",
+                opacity: { duration: 0.4 }
+            }}
+            style={{
+                backgroundImage: `url('/images/me.png')`,
+                backgroundPosition: 'bottom',
+                backgroundSize: 'cover',
+                filter: 'brightness(1.15) contrast(1.2) saturate(1.1)',
+            }}
+            whileHover={{ scale: 1.02 }}
+        />
+        <motion.div 
+            className="absolute w-96 h-96 rounded-full flex-shrink-0 transform hover:scale-110 hover:shadow-2xl"
+            initial={{ opacity: 0 }}
+            animate={{ 
+                opacity: isExpanded ? 1 : 0,
+                x: isExpanded ? '40rem' : -2 
+            }}
+            transition={{ 
+                duration: 0.8,
+                ease: "easeInOut",
+                opacity: { duration: 0.4 }
+            }}
+            style={{
+                backgroundImage: `url('/images/me3.png')`,
+                backgroundPosition: 'top',
+                backgroundSize: 'cover',
+                filter: 'brightness(1.15) contrast(1.2) saturate(1.1)',
+                left: 0  // Add this to ensure proper positioning
+            }}
+            whileHover={{ scale: 1.02 }}
+        />
             
             <motion.div 
                 className="px-16"
@@ -136,6 +171,79 @@ const About = () => {
 
            
         </motion.div>
+        </div>
+
+
+        {/* MOBILE SECTION */}
+        <div className='flex md:hidden'>
+            <motion.div className="relative h-[800px] rounded-full mt-24 mb-10 grid items-center "
+            variants={mobilecontainerVariants}
+            initial="initial"
+            animate={isExpanded ? "expanded" : "initial"}
+            onClick={() => setIsExpanded(!isExpanded)}>
+                <motion.div className='w-full text-center p-10'
+                variants = {textVariants}>
+                   <h2 className={`${chakra.className} text-2xl font-bold mb-3 text-white tracking-wide`}>About Me</h2>
+                   <p className={`${chakra.className} text-white text-sm tracking-wide`}>
+                    Hi! My name is Geoff Jiang, I`m currently a second year computer science student studying @ UBC. Why Computer Science you ask? I don`t know. I have a strong interest in fullstack and web dev, but also dabble in fields such as game design and cybersecurity. I have a solid foundation in Java, Python, and C, with my arsenal expanding into JavaScript, C++, HTML/CSS and many more to come. If you have any questions or just want to chat, feel free to reach out via Instagram. 
+                    
+                </p>
+                </motion.div>
+                
+                <motion.div 
+            className="w-[23rem] h-[23rem] mx-auto rounded-full transform hover:scale-110 hover:shadow-2xl"
+            initial={{ opacity: 1 }}
+            animate={{ opacity: isExpanded ? 0 : 1,
+                y: isExpanded? '-26.4rem' : 10
+            }}
+            transition={{ duration: 0.8,
+                ease: "easeInOut",
+                opacity: { duration: 0.4 } }}
+            style={{
+                backgroundImage: `url('/images/me.png')`,
+                backgroundPosition: 'bottom',
+                backgroundSize: 'cover',
+                filter: 'brightness(1.15) contrast(1.2) saturate(1.1)',
+            }}
+            whileHover={{ scale: 1.02 }}
+        />
+        <motion.div 
+            className="absolute w-[23rem] h-[23rem] left-1 rounded-full transform hover:scale-110 hover:shadow-2xl"
+            initial={{ opacity: 0 }}
+            animate={{ 
+                opacity: isExpanded ? 1 : 0,
+                y: isExpanded ? '-13.2rem' : '13.2rem' 
+            }}
+            transition={{ 
+                duration: 0.8,
+                ease: "easeInOut",
+                opacity: { duration: 0.4 }
+            }}
+            style={{
+                backgroundImage: `url('/images/me3.png')`,
+                backgroundPosition: 'top',
+                backgroundSize: 'cover',
+                filter: 'brightness(1.15) contrast(1.2) saturate(1.1)',
+            }}
+            whileHover={{ scale: 1.02 }}
+        />
+
+                <motion.div className='mt-80 absolute w-full text-center p-10'
+                variants={textVariants2}>
+                    <h2 className={`${chakra.className} text-2xl font-bold mb-3 text-white tracking-wide`}>Still Curious?</h2>
+                    <p className={`${chakra.className} text-white text-sm tracking-wide`}>
+                    Hi! My name is Geoff Jiang, I`m currently a second year computer science student studying @ UBC. Why Computer Science you ask? I don`t know. I have a strong interest in fullstack and web dev, but also dabble in fields such as game design and cybersecurity. I have a solid foundation in Java, Python, and C, with my arsenal expanding into JavaScript, C++, HTML/CSS and many more to come. If you have any questions or just want to chat, feel free to reach out via Instagram. 
+                    
+                    </p>
+
+                </motion.div>
+    
+            
+       
+                
+        </motion.div>
+        </div>
+        </div>
     );
 };
 

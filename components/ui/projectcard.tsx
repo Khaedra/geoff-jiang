@@ -54,7 +54,7 @@ const ProjectCard = ({ project }) => {
           <p className="text-blue-500 text-sm">{project.subtitle}</p>
 
           <div className="absolute inset-0 bg-black bg-opacity-90 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center">
-            <p className="text-white">{project.description}</p>
+            <p className="text-white text-xs md:text-base overflow-">{project.description}</p>
           </div>
         </div>
       </a>

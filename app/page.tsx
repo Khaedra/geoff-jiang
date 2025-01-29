@@ -27,20 +27,20 @@ const projects = [
     title: "Machine Learning Barbell Exercise Tracker",
     subtitle: "Python • Pandas • Conda • Matplotlib",
     description: <>
-    A <b>machine learning model</b> for barbell exercise classification and repetition counting using 
-    <b> accelerometer and gyroscope data</b>. <br/><br/>
-    
-    The dataset comprised <b>70,000 observations</b> from five participants performing five different exercises: 
-    bench press, squat, row, deadlift, and overhead press, collected via a metaMotion wrist sensor. <br/><br/>
-    
-    Data preprocessing included multiple outlier detection methods (<b>IQR, Chauvenet`s criterion, and Local Outlier Factor</b>) 
-    and feature engineering techniques such as <b>Butterworth`s Low Pass Filter, Principal Component Analysis</b>, 
-    and various temporal and frequency abstractions. <br/><br/>
-    
-    Model selection involved forward feature selection with decision trees and Grid Search optimization across 
-    multiple algorithms including <b>Neural Networks, Random Forest, Naive Bayes, and Decision Trees</b>. 
-    The final model achieved over <b>99% accuracy and precision</b>.
-  </>,
+      A <b>machine learning model</b> for barbell exercise classification and repetition counting using
+      <b> accelerometer and gyroscope data</b>. <br /><br />
+
+      The dataset comprised <b>70,000 observations</b> from five participants performing five different exercises:
+      bench press, squat, row, deadlift, and overhead press, collected via a metaMotion wrist sensor. <br /><br />
+
+      Data preprocessing included multiple outlier detection methods (<b>IQR, Chauvenet`s criterion, and Local Outlier Factor</b>)
+      and feature engineering techniques such as <b>Butterworth`s Low Pass Filter, Principal Component Analysis</b>,
+      and various temporal and frequency abstractions. <br /><br />
+
+      Model selection involved forward feature selection with decision trees and Grid Search optimization across
+      multiple algorithms including <b>Neural Networks, Random Forest, Naive Bayes, and Decision Trees</b>.
+      The final model achieved over <b>99% accuracy and precision</b>.
+    </>,
     link: "https://github.com/Khaedra/Fitness-Tracker-ML",
     size: "medium", // Controls card size
     image: "barbell",
@@ -81,7 +81,7 @@ const projects = [
     link: "https://devpost.com/software/croak-quest",
     size: "medium",
     image: "frog",
-    award: true, 
+    award: true,
   },
 ];
 
@@ -104,24 +104,45 @@ export default function Component() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#001219] flex flex-col">
       {/* Geometric Shapes */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -left-[100px] -top-[400px] h-[800px] w-96 rotate-45 transform bg-gradient-to-br from-[#620057] from-20% to-[#021B56]" />
-        <div className="absolute left-[70px] top-[120px] h-[220px] w-8 rotate-45 transform bg-gradient-to-tl from-[#042D85] to-[#41228F] opacity-50" />
-        <div className="absolute left-[300px] -top-[50px] h-[280px] w-8 rotate-45 transform bg-[#042D85] opacity-45" />
-        <div className="absolute -right-40 -top-44 h-[400px] w-[600px] -rotate-45 transform bg-gradient-to-br from-[#620057] via-[#330D57] to-[#021B56] opacity-50" />
-        <div className="absolute top-44 -right-40 h-[500px] w-96 rotate-45 transform bg-gradient-to-br from-[#620057] via-[#330D57] to-[#021B56] opacity-50" />
-
-
-
-
-        <div className="absolute -bottom-52 -right-40 h-[500px] w-96 rotate-45 transform bg-gradient-to-br from-[#620057] via-[#330D57] to-[#021B56] opacity-50" />
-        <div className="absolute -bottom-20 -right-40 h-[500px] w-96 rotate-45 transform bg-gradient-to-br from-[#620057] via-[#330D57] to-[#021B56] opacity-50" />
-      </div>
+      {/* Geometric Shapes */}
+<div className="absolute inset-0 overflow-hidden">
+  {/* Top left large shape */}
+  <div className="absolute w-[40vw] h-[60vh] -left-[10vw] -top-[20vh] 
+    rotate-45 transform bg-gradient-to-br from-[#620057] from-20% to-[#021B56]
+    sm:w-96 sm:-left-[100px] sm:-top-[400px] sm:h-[800px]" />
+  
+  {/* Small accent shapes */}
+  <div className="absolute w-8 h-[20vh] left-[5vw] top-[10vh] 
+    rotate-45 transform bg-gradient-to-tl from-[#042D85] to-[#41228F] opacity-50
+    sm:left-[70px] sm:top-[120px] sm:h-[220px]" />
+  
+  <div className="absolute w-8 h-[25vh] left-[20vw] -top-[5vh] 
+    rotate-45 transform bg-[#042D85] opacity-45
+    sm:left-[300px] sm:-top-[50px] sm:h-[280px]" />
+  
+  {/* Top right shapes */}
+  <div className="absolute w-[80vw] h-[40vh] -right-[20vw] -top-[10vh] 
+    -rotate-45 transform bg-gradient-to-br from-[#620057] via-[#330D57] to-[#021B56] opacity-50
+    sm:w-[600px] sm:-right-40 sm:-top-44 sm:h-[400px]" />
+  
+  <div className="absolute w-[60vw] h-[50vh] -right-[15vw] top-[15vh] 
+    rotate-45 transform bg-gradient-to-br from-[#620057] via-[#330D57] to-[#021B56] opacity-50
+    sm:w-96 sm:-right-40 sm:top-44 sm:h-[500px]" />
+  
+  {/* Bottom shapes */}
+  <div className="absolute w-[60vw] h-[50vh] -right-[15vw] -bottom-[15vh] 
+    rotate-45 transform bg-gradient-to-br from-[#620057] via-[#330D57] to-[#021B56] opacity-50
+    sm:w-96 sm:-right-40 sm:-bottom-52 sm:h-[500px]" />
+  
+  <div className="absolute w-[60vw] h-[50vh] -right-[15vw] -bottom-[5vh] 
+    rotate-45 transform bg-gradient-to-br from-[#620057] via-[#330D57] to-[#021B56] opacity-50
+    sm:w-96 sm:-right-40 sm:-bottom-20 sm:h-[500px]" />
+</div>
 
       {/* Navigation */}
       <nav className="relative z-10">
-        <div className="mx-auto max-w-6xl px-4 py-8">
-          <ul className="flex justify-end space-x-12 text-lg tracking-widest">
+        <div className="mx-auto w-[80%] px-4 py-8">
+          <ul className="flex justify-center md:justify-end space-x-12 text-sm md:text-lg tracking-widest">
             {navItems.map((item) => (
               <li key={item.name}>
                 <Link
@@ -143,8 +164,8 @@ export default function Component() {
       </nav>
 
       {/* Main Content */}
-      <main className="relative z-10 mx-auto max-w-6xl px-4 pt-32 mt-10 ">
-        <h1 className={`${michroma.className} text-center text-8xl font-bold text-white tracking-wider`}>
+      <main className="relative z-10 mx-auto w-[90%] md:w-[80%] px-4 pt-32 ">
+      <h1 className={`${michroma.className} text-center text-6xl sm:text-6xl md:text-8xl font-bold text-white tracking-wider`}>
           GEOFF
           <div className='border-y-2 relative w-full h-10 bg-transparent text-white text-base mt-8 mb-5 whitespace-nowrap overflow-hidden py-1'>
             <p className='animate-scrolling-text text-lg inline-flex mx-1'>
@@ -159,10 +180,10 @@ export default function Component() {
       </main>
 
       {/* Social Links */}
-      <div className=' relative w-auto h-20 flex space-x-10 z-10 mt-[10%] mb-9 justify-center '>
+      <div className=' relative w-auto h-20 flex space-x-10 z-10 mt-[20%] md:mt-[10%] mb-9 justify-center '>
         {socialLinks.map((link, index) => (
           <a key={index} href={link.href} target='_blank' rel="noopener noreferrer" className={`text-white ${link.hoverColor} hover:scale-110 duration-200`}>
-            <link.icon size={40} />
+            <link.icon size={30} className='md:size-11' />
           </a>
         ))}
 
@@ -174,7 +195,7 @@ export default function Component() {
       <h1 id="projects" className={`${michroma.className} text-white text-4xl mt-56 mb-10 mx-10 z-10`}>Projects</h1>
 
 
-      <div className={`${chakra.className} relative grid grid-cols-2 auto-rows-fr gap-9 w-[80%] h-full p-10 mx-auto mb-24 justify-center align-middle`}>
+      <div className={`${chakra.className} relative grid grid-cols-1 md:grid-cols-2 auto-rows-fr gap-9 w-[80%] h-full p-10 mx-auto mb-24 justify-center align-middle`}>
         <ProjectCard project={projects[0]} />
         <ProjectCard project={projects[1]} />
         <ProjectCard project={projects[2]} />
@@ -193,7 +214,7 @@ export default function Component() {
       <div className=' relative w-auto h-20 flex space-x-10 z-10 mt-[10%] mb-9 justify-center '>
         {socialLinks.map((link, index) => (
           <a key={index} href={link.href} target='_blank' rel="noopener noreferrer" className={`text-white ${link.hoverColor} hover:scale-110 duration-200`}>
-            <link.icon size={40} />
+            <link.icon size={30} className='md:size-11' />
           </a>
         ))}
       </div>
