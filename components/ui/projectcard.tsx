@@ -12,7 +12,7 @@ const ProjectCard = ({ project }) => {
 
   const row = {
     large: `row-span-2`,
-    regular: `row-span-1`,
+    regular: `row-span-1`, 
   };
 
   // Define height classes based on row size
