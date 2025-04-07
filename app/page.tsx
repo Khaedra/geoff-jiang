@@ -157,7 +157,7 @@ export default function Component() {
 
             ))}
             <li>
-              <Link href="/documents/TechResume2.pdf" download target="_blank" className='transition-colors text-blue-500 hover:text-blue-400'>resume</Link>
+              <Link href="/documents/Geoffrey_Jiang_Resume_2.pdf" download target="_blank" className='transition-colors text-blue-500 hover:text-blue-400'>resume</Link>
             </li>
           </ul>
         </div>
@@ -196,11 +196,12 @@ export default function Component() {
 
 
       <div className={`${chakra.className} relative grid grid-cols-1 md:grid-cols-2 auto-rows-fr gap-9 w-[80%] h-full p-10 mx-auto mb-24 justify-center align-middle`}>
-        <ProjectCard project={projects[0]} />
+        {projects.map((curr) => <ProjectCard project = {curr} /> )}
+        {/* <ProjectCard project={projects[0]} />
         <ProjectCard project={projects[1]} />
         <ProjectCard project={projects[2]} />
         <ProjectCard project={projects[4]} />
-        <ProjectCard project={projects[3]} />
+        <ProjectCard project={projects[3]} /> */}
 
       </div>
 
