@@ -196,7 +196,7 @@ export default function Component() {
 
 
       <div className={`${chakra.className} relative grid grid-cols-1 md:grid-cols-2 auto-rows-fr gap-9 w-[80%] h-full p-10 mx-auto mb-24 justify-center align-middle`}>
-        {projects.map((curr) => <ProjectCard project = {curr} /> )}
+        {projects.map((curr, i) => <ProjectCard key={i} project = {curr} /> )}
         {/* <ProjectCard project={projects[0]} />
         <ProjectCard project={projects[1]} />
         <ProjectCard project={projects[2]} />
