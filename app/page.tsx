@@ -56,6 +56,7 @@ const projects = [
     image: "wellspring",
     award: true,
   },
+ 
   {
     id: 3,
     title: "Nutrition Log",
@@ -74,6 +75,17 @@ const projects = [
     size: "small",
   },
   {
+    id: 6,
+    title: "KNews",
+    subtitle: "React • Django • MySQL • Redis • Render",
+    description: <>A full stack application, providing a concise summary of current news fetched from the Guardian and summarized by AI. Articles are stored in a mySQL database, filtered and cached to optimze space and time. The application is containerized with Docker and deployed on Render, eliminating manual server maintenance/upkeep. </>,
+    link: "https://knews-azure.vercel.app/",
+    size: "large",
+    row: "large",
+    image: "knews",
+
+  },
+  {
     id: 5,
     title: "Croak Quest (NW Hacks 2025)",
     subtitle: "C# • Unity • LeapMotion",
@@ -83,6 +95,7 @@ const projects = [
     image: "frog",
     award: true,
   },
+ 
 ];
 
 export default function Component() {
@@ -157,7 +170,7 @@ export default function Component() {
 
             ))}
             <li>
-              <Link href="/documents/Geoffrey_Jiang_Resume_2.pdf" download target="_blank" className='transition-colors text-blue-500 hover:text-blue-400'>resume</Link>
+              <Link href="/documents/Geoffrey_Jiang_Resume.pdf" download target="_blank" className='transition-colors text-blue-500 hover:text-blue-400'>resume</Link>
             </li>
           </ul>
         </div>
@@ -169,10 +182,10 @@ export default function Component() {
           GEOFF
           <div className='border-y-2 relative w-full h-10 bg-transparent text-white text-base mt-8 mb-5 whitespace-nowrap overflow-hidden py-1'>
             <p className='animate-scrolling-text text-lg inline-flex mx-1'>
-              / SECOND YEAR COMPUTER SCIENCE STUDENT / ASPIRING SOFTWARE DEVELOPER / UI/UX ENTHUSIAST / FULLSTACK CAPABILITIES
+              / THIRD YEAR COMPUTER SCIENCE STUDENT / ASPIRING SOFTWARE DEVELOPER / UI/UX ENTHUSIAST / FULLSTACK CAPABILITIES
             </p>
             <p className='animate-scrolling-text text-lg inline-flex'>
-              / SECOND YEAR COMPUTER SCIENCE STUDENT / ASPIRING SOFTWARE DEVELOPER / UI/UX ENTHUSIAST / FULLSTACK CAPABILITIES
+              / THIRD YEAR COMPUTER SCIENCE STUDENT / ASPIRING SOFTWARE DEVELOPER / UI/UX ENTHUSIAST / FULLSTACK CAPABILITIES
             </p>
           </div>
           <span className='tracking-widest'>JIANG</span>
@@ -196,12 +209,8 @@ export default function Component() {
 
 
       <div className={`${chakra.className} relative grid grid-cols-1 md:grid-cols-2 auto-rows-fr gap-9 w-[80%] h-full p-10 mx-auto mb-24 justify-center align-middle`}>
-        {projects.map((curr, i) => <ProjectCard key={i} project = {curr} /> )}
-        {/* <ProjectCard project={projects[0]} />
-        <ProjectCard project={projects[1]} />
-        <ProjectCard project={projects[2]} />
-        <ProjectCard project={projects[4]} />
-        <ProjectCard project={projects[3]} /> */}
+        {projects.map((project, index) => <ProjectCard project = {project} key = {index} />)}
+       
 
       </div>
 
@@ -212,12 +221,15 @@ export default function Component() {
         <About />
       </div>
 
-      <div className=' relative w-auto h-20 flex space-x-10 z-10 mt-[10%] mb-9 justify-center '>
+      <div className=' relative w-auto h-20 flex space-x-10 z-10 mt-[10%] mb-3 justify-center '>
         {socialLinks.map((link, index) => (
           <a key={index} href={link.href} target='_blank' rel="noopener noreferrer" className={`text-white ${link.hoverColor} hover:scale-110 duration-200`}>
             <link.icon size={30} className='md:size-11' />
           </a>
         ))}
+      </div>
+      <div className={` w-full h-10 text-center text-xl text-white ${chakra.className}`}>
+        <h1>Last Updated: May 26, 2025</h1>
       </div>
 
     </div>
